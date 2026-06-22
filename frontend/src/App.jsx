@@ -18,18 +18,20 @@ function App() {
     <AuthProvider>
       <CartProvider>
         <div className="texture-overlay"></div>
-        <Router>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/hobbies" element={<HobbySelectionPage />} />
-            <Route path="/products" element={<ProductListingPage />} />
-            <Route path="/product/:id" element={<ProductDetailPage />} />
-            <Route path="/cart" element={<CartPage />} />
-          </Routes>
-        </Router>
+        <div className="page-wrapper">
+          <Router>
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/hobbies" element={<HobbySelectionPage />} />
+              <Route path="/products" element={<ProductListingPage />} />
+              <Route path="/product/:id" element={<ProductDetailPage />} />
+              <Route path="/cart" element={<CartPage />} />
+            </Routes>
+          </Router>
+        </div>
       </CartProvider>
     </AuthProvider>
   );

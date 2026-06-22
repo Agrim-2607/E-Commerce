@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 const LandingPage = () => {
   return (
     <div className="landing-page">
-      <section className="hero section text-center container" style={{ paddingTop: '160px', paddingBottom: '120px' }}>
+      <section className="hero section text-center container" style={{ paddingTop: '100px', paddingBottom: '60px' }}>
         <h1 className="title-hero animate-fade-up stagger-1">
           Curated For Your Passion
         </h1>
-        <p className="text-muted animate-fade-up stagger-2" style={{ maxWidth: '640px', margin: '0 auto 48px', fontSize: '1.25rem' }}>
+        <p className="text-muted animate-fade-up stagger-2" style={{ maxWidth: '640px', margin: '0 auto 40px', fontSize: '1.25rem' }}>
           Discover premium products expertly tailored to your creative and professional hobbies. Experience a curated shopping journey designed for enthusiasts.
         </p>
         <div className="animate-fade-up stagger-3">
@@ -18,7 +18,7 @@ const LandingPage = () => {
         </div>
       </section>
       
-      <section className="container section">
+      <section className="container section" style={{ paddingTop: '20px' }}>
         <div className="grid-4 animate-fade-up stagger-4">
           <div className="card glass text-center">
             <h3 className="title-card" style={{ color: '#fff' }}>Atmospheric Design</h3>
