@@ -52,43 +52,44 @@ const HobbySelectionPage = () => {
   const IconComponent = ({ name }) => {
     const iconName = name?.split('-').map(part => part.charAt(0).toUpperCase() + part.slice(1)).join('') || 'Heart';
     const Icon = Icons[iconName] || Icons.Heart;
-    return <Icon size={48} style={{ marginBottom: '16px', color: 'var(--accent-primary)' }} />;
+    return <Icon size={40} className="hobby-icon" />;
   };
 
   return (
-    <div className="container section animate-fade-in">
-      <div className="text-center" style={{ marginBottom: '48px' }}>
-        <h1 className="title-large">What do you love?</h1>
-        <p className="text-muted">Select your hobbies to discover tailored products.</p>
+    <div className="container section">
+      <div className="text-center animate-fade-up stagger-1" style={{ marginBottom: '64px' }}>
+        <h1 className="title-hero" style={{ fontSize: '3.5rem', marginBottom: '16px' }}>What drives you?</h1>
+        <p className="text-muted" style={{ maxWidth: '500px', margin: '0 auto' }}>Select your passions to personalize your experience with curated gear and professional tools.</p>
       </div>
 
-      <div className="grid-4" style={{ gap: '24px' }}>
+      <div className="grid-4 animate-fade-up stagger-2">
         {hobbies.map(hobby => {
           const isSelected = selectedHobbies.includes(hobby.id);
           return (
             <div 
               key={hobby.id} 
-              className="card glass text-center" 
+              className={`card glass hobby-card ${isSelected ? 'selected' : ''}`}
               onClick={() => toggleHobby(hobby.id)}
-              style={{ 
-                cursor: 'pointer',
-                border: isSelected ? '2px solid var(--accent-primary)' : '1px solid transparent',
-                transform: isSelected ? 'scale(1.02)' : 'scale(1)'
-              }}
             >
               <IconComponent name={hobby.icon} />
-              <h3 className="title-card">{hobby.hobby_name}</h3>
+              <h3 className="title-card" style={{ color: '#fff', letterSpacing: '0.02em', margin: 0 }}>{hobby.hobby_name}</h3>
             </div>
           );
         })}
       </div>
 
-      <div className="text-center" style={{ marginTop: '48px' }}>
+      <div className="text-center animate-fade-up stagger-3" style={{ marginTop: '64px' }}>
         <button 
           className="btn btn-primary" 
           onClick={handleSave}
           disabled={selectedHobbies.length === 0}
-          style={{ padding: '16px 48px', fontSize: '1.125rem' }}
+          style={{ 
+            padding: '16px 56px', 
+            fontSize: '1.125rem',
+            borderRadius: '16px',
+            opacity: selectedHobbies.length === 0 ? 0.5 : 1,
+            pointerEvents: selectedHobbies.length === 0 ? 'none' : 'auto'
+          }}
         >
           Continue
         </button>

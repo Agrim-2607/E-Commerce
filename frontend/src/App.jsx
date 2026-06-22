@@ -17,6 +17,7 @@ function App() {
   return (
     <AuthProvider>
       <CartProvider>
+        <div className="texture-overlay"></div>
         <Router>
           <Navbar />
           <Routes>
