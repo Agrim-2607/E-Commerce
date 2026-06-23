@@ -292,3 +292,114 @@ nav {
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
+
+/* Product Listing Layout */
+.listing-layout {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.filter-sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  padding: 24px;
+  border-radius: 16px;
+  position: sticky;
+  top: 100px;
+}
+
+.product-grid-container {
+  flex: 1;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1200px) {
+  .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+}
+
+/* Custom Checkboxes */
+.filter-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  transition: opacity 0.2s;
+}
+
+.filter-label:hover {
+  opacity: 0.8;
+}
+
+.filter-label input {
+  display: none;
+}
+
+.custom-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  position: relative;
+  transition: all 0.2s ease;
+  background: rgba(0,0,0,0.3);
+}
+
+.filter-label input:checked + .custom-checkbox {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+}
+
+.filter-label input:checked + .custom-checkbox::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Mobile Sidebar Drawer */
+@media (max-width: 1024px) {
+  .listing-layout {
+    flex-direction: column;
+  }
+  .mobile-only {
+    display: inline-flex !important;
+  }
+  .filter-sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    height: 100vh;
+    border-radius: 0;
+    z-index: 1000;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+    background: rgba(15, 15, 15, 0.95);
+    backdrop-filter: blur(40px);
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  .filter-sidebar.open {
+    left: 0;
+  }
+  .close-filter-btn {
+    display: block !important;
+  }
+}
