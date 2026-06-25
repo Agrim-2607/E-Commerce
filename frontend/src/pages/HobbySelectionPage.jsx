@@ -49,7 +49,11 @@ const HobbySelectionPage = () => {
     }
   };
 
-  const IconComponent = ({ name }) => {
+  const IconComponent = ({ name, hobbyName }) => {
+    // Special override: Football → CircleDot (soccer ball representation)
+    if (hobbyName === 'Football') {
+      return <Icons.CircleDot size={40} className="hobby-icon" />;
+    }
     const iconName = name?.split('-').map(part => part.charAt(0).toUpperCase() + part.slice(1)).join('') || 'Heart';
     const Icon = Icons[iconName] || Icons.Heart;
     return <Icon size={40} className="hobby-icon" />;
@@ -71,7 +75,7 @@ const HobbySelectionPage = () => {
               className={`card glass hobby-card ${isSelected ? 'selected' : ''}`}
               onClick={() => toggleHobby(hobby.id)}
             >
-              <IconComponent name={hobby.icon} />
+              <IconComponent name={hobby.icon} hobbyName={hobby.hobby_name} />
               <h3 className="title-card" style={{ color: '#fff', letterSpacing: '0.02em', margin: 0 }}>{hobby.hobby_name}</h3>
             </div>
           );
