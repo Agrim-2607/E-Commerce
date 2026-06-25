@@ -42,31 +42,26 @@
 .navbar-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: -0.5px;
   color: var(--text-primary);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  text-decoration: none;
 }
 
 .navbar-logo:hover {
   transform: translateY(-1px);
 }
 
-.navbar-logo-icon {
+.navbar-logo-svg {
   flex-shrink: 0;
-  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: block;
+  /* Smooth subtle scale on hover; handled by parent .navbar-logo:hover */
+  transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1),
+              filter  0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.navbar-logo:hover .navbar-logo-icon {
-  transform: rotate(15deg) scale(1.05);
-}
-
-.navbar-logo-text {
-  background: linear-gradient(180deg, #FFFFFF 0%, #E1E1E6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.navbar-logo:hover .navbar-logo-svg {
+  transform: translateY(-1px);
+  filter: drop-shadow(0 0 8px rgba(128, 20, 29, 0.55));
 }
 
 .navbar-search {

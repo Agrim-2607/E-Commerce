@@ -22,24 +22,73 @@ const Navbar = () => {
       <div className="navbar-aurora"></div>
       <div className="navbar-container container">
         <Link to="/" className="navbar-logo">
-          <svg className="navbar-logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 14C6 9.58 9.58 6 14 6C18.42 6 22 9.58 22 14C22 18.42 18.42 22 14 22C9.58 22 6 18.42 6 14Z" stroke="url(#logo-grad-1)" strokeWidth="1.5" strokeDasharray="3 3"/>
-            <path d="M14 2C7.37 2 2 7.37 2 14C2 20.63 7.37 26 14 26C20.63 26 26 20.63 26 14C26 7.37 20.63 2 14 2ZM14 24C8.48 24 4 19.52 4 14C4 8.48 8.48 4 14 4C19.52 4 24 8.48 24 14C24 19.52 19.52 24 14 24Z" fill="url(#logo-grad-2)" opacity="0.4"/>
-            <path d="M14 9L18 14H10L14 9Z" fill="#FF1F4D"/>
-            <path d="M14 19L10 14H18L14 19Z" fill="#8B001A"/>
-            <circle cx="14" cy="14" r="1.5" fill="#FFFFFF"/>
+          <svg
+            className="navbar-logo-svg"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 220 44"
+            height="36"
+            width="auto"
+            aria-label="HobbyMart"
+          >
             <defs>
-              <linearGradient id="logo-grad-1" x1="6" y1="6" x2="22" y2="22" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#FF1F4D"/>
-                <stop offset="1" stopColor="#8B001A"/>
+              <linearGradient id="nb-wine" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%"   stopColor="#58111A" />
+                <stop offset="55%"  stopColor="#80141D" />
+                <stop offset="100%" stopColor="#A21C26" />
               </linearGradient>
-              <linearGradient id="logo-grad-2" x1="2" y1="2" x2="26" y2="26" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#8B001A"/>
-                <stop offset="1" stopColor="#050505"/>
+              <linearGradient id="nb-dark" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%"   stopColor="#F5F0F0" />
+                <stop offset="100%" stopColor="#D4CBCC" />
               </linearGradient>
             </defs>
+
+            {/* ── Icon mark: vertical spine + stacked shelves ── */}
+            <g transform="translate(0, 2)">
+              {/* Left spine */}
+              <rect x="2" y="4" width="5" height="32" rx="2.5" fill="url(#nb-wine)" />
+              {/* Crossbar */}
+              <rect x="6" y="16" width="9" height="5" rx="1.5" fill="url(#nb-wine)" />
+              {/* Top shelf */}
+              <rect x="13" y="4"  width="7" height="7"  rx="2"   fill="url(#nb-wine)" />
+              {/* Mid shelf */}
+              <rect x="13" y="14" width="6" height="7"  rx="1.5" fill="url(#nb-wine)" opacity="0.88" />
+              {/* Bottom shelf */}
+              <rect x="13" y="24" width="5" height="10" rx="1.5" fill="url(#nb-wine)" opacity="0.7"  />
+              {/* Handle arc */}
+              <path
+                d="M 13,7 C 13,-1 22,-1 22,7"
+                fill="none"
+                stroke="url(#nb-wine)"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+              />
+              {/* Accent dots */}
+              <circle cx="26" cy="9"  r="1.3" fill="url(#nb-wine)" opacity="0.5" />
+              <circle cx="25" cy="18" r="1"   fill="url(#nb-wine)" opacity="0.65"/>
+              <circle cx="24" cy="27" r="0.8" fill="url(#nb-wine)" opacity="0.45"/>
+            </g>
+
+            {/* ── Wordmark ── */}
+            {/* "Hobby" — light/white bold */}
+            <text
+              x="36" y="31"
+              fontFamily="'Plus Jakarta Sans','Inter',sans-serif"
+              fontWeight="800"
+              fontSize="22"
+              fill="url(#nb-dark)"
+              letterSpacing="-0.5"
+            >Hobby</text>
+
+            {/* "Mart" — cherry-wine gradient */}
+            <text
+              x="122" y="31"
+              fontFamily="'Plus Jakarta Sans','Inter',sans-serif"
+              fontWeight="400"
+              fontSize="22"
+              fill="url(#nb-wine)"
+              letterSpacing="-0.3"
+            >Mart</text>
           </svg>
-          <span className="navbar-logo-text">HobbyMart</span>
         </Link>
         
         <div className="navbar-search">
