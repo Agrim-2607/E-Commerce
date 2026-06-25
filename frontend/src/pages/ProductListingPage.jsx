@@ -142,22 +142,24 @@ const ProductListingPage = () => {
             </div>
           ) : (
             <div className="grid-3">
-              {filteredProducts.map(product => (
-                <div key={product.id} className="card glass product-card" style={{ display: 'flex', flexDirection: 'column', padding: 0, overflow: 'hidden' }}>
-                  <Link to={`/product/${product.id}`} style={{ display: 'block', position: 'relative' }}>
-                    <div style={{ width: '100%', height: '240px', backgroundColor: '#1A1A1C' }}>
-                      {product.image_url ? (
-                        <img 
-                          src={product.image_url} 
-                          alt={product.product_name} 
-                          style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
-                        />
-                      ) : (
-                        <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-secondary)' }}>
-                          No Image Available
-                        </div>
-                      )}
-                    </div>
+              {filteredProducts.map(product => {
+                const isFeatured = Number(product.price) > 150000;
+                return (
+                  <div key={product.id} className={`card glass product-card ${isFeatured ? 'featured' : ''}`} style={{ display: 'flex', flexDirection: 'column', padding: 0, overflow: 'hidden' }}>
+                    <Link to={`/product/${product.id}`} style={{ display: 'block', position: 'relative' }}>
+                      <div className="product-image-container" style={{ width: '100%', height: '240px' }}>
+                        {product.image_url ? (
+                          <img 
+                            src={product.image_url} 
+                            alt={product.product_name} 
+                            style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                          />
+                        ) : (
+                          <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-secondary)' }}>
+                            No Image Available
+                          </div>
+                        )}
+                      </div>
                     {product.source_type && (
                       <div className="product-badge" style={{ position: 'absolute', top: '12px', left: '12px', background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(4px)', padding: '4px 8px', borderRadius: '4px', fontSize: '0.75rem', display: 'flex', alignItems: 'center', gap: '4px' }}>
                         {product.source_type.includes('official') ? <ShieldCheck size={14} color="var(--accent-primary)" /> : null}
@@ -197,7 +199,8 @@ const ProductListingPage = () => {
                     </div>
                   </div>
                 </div>
-              ))}
+              );
+            })}
             </div>
           )}
         </main>

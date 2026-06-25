@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import MagneticCard from '../components/MagneticCard';
 
 const LandingPage = () => {
   return (
@@ -20,22 +21,22 @@ const LandingPage = () => {
       
       <section className="container section" style={{ paddingTop: '20px' }}>
         <div className="grid-4 animate-fade-up stagger-4">
-          <div className="card glass text-center">
+          <MagneticCard className="text-center">
             <h3 className="title-card" style={{ color: '#fff' }}>Atmospheric Design</h3>
             <p className="text-muted" style={{marginTop: '12px', fontSize: '1rem'}}>A clean, minimal, and immersive dark-mode shopping experience.</p>
-          </div>
-          <div className="card glass text-center">
+          </MagneticCard>
+          <MagneticCard className="text-center">
             <h3 className="title-card" style={{ color: '#fff' }}>Curated Selection</h3>
             <p className="text-muted" style={{marginTop: '12px', fontSize: '1rem'}}>Products hand-picked specifically for your selected hobbies.</p>
-          </div>
-          <div className="card glass text-center">
+          </MagneticCard>
+          <MagneticCard className="text-center">
             <h3 className="title-card" style={{ color: '#fff' }}>Fluid Interactions</h3>
             <p className="text-muted" style={{marginTop: '12px', fontSize: '1rem'}}>Fast, responsive, and distraction-free micro-interactions.</p>
-          </div>
-          <div className="card glass text-center">
+          </MagneticCard>
+          <MagneticCard className="text-center">
             <h3 className="title-card" style={{ color: '#fff' }}>Premium Focus</h3>
             <p className="text-muted" style={{marginTop: '12px', fontSize: '1rem'}}>Tailored entirely for creators, gamers, artists, and professionals.</p>
-          </div>
+          </MagneticCard>
         </div>
       </section>
     </div>
