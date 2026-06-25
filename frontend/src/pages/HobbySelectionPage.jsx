@@ -50,9 +50,35 @@ const HobbySelectionPage = () => {
   };
 
   const IconComponent = ({ name, hobbyName }) => {
-    // Special override: Football → CircleDot (soccer ball representation)
+    // Special override: Football → Premium Custom Soccer Ball SVG
     if (hobbyName === 'Football') {
-      return <Icons.CircleDot size={40} className="hobby-icon" />;
+      return (
+        <svg 
+          className="hobby-icon" 
+          width={40} 
+          height={40} 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2" 
+          strokeLinecap="round" 
+          strokeLinejoin="round" 
+          style={{ objectFit: 'contain' }}
+        >
+          <circle cx="12" cy="12" r="10" />
+          {/* Center hexagon */}
+          <polygon points="12,7.5 16,10 16,14 12,16.5 8,14 8,10" />
+          {/* Outward lines from center hexagon */}
+          <path d="M12,7.5 L12,4 M16,10 L19.5,8 M16,14 L19.5,16 M12,16.5 L12,20 M8,14 L4.5,16 M8,10 L4.5,8" />
+          {/* Surrounding pentagons (filled) */}
+          <polygon points="12,4 9.5,2.8 14.5,2.8" fill="currentColor" />
+          <polygon points="12,20 9.5,21.2 14.5,21.2" fill="currentColor" />
+          <polygon points="19.5,8 21.3,5.8 21.2,11.2" fill="currentColor" />
+          <polygon points="19.5,16 21.2,12.8 21.3,18.2" fill="currentColor" />
+          <polygon points="4.5,8 2.8,11.2 2.7,5.8" fill="currentColor" />
+          <polygon points="4.5,16 2.7,18.2 2.8,12.8" fill="currentColor" />
+        </svg>
+      );
     }
     const iconName = name?.split('-').map(part => part.charAt(0).toUpperCase() + part.slice(1)).join('') || 'Heart';
     const Icon = Icons[iconName] || Icons.Heart;
